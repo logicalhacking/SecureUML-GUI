@@ -5,6 +5,15 @@ dialects with and without support for Generic Break Glass concepts.
 ## License
 This project is licensed under a 2-clause BSD license. 
 
+## Team 
+* [Achim D. Brucker](http://www.brucker.ch/)
+* Jürgen Doser
+* [Helmut Petritsch](http://petritsch.co.at/)
+
+### Contributors
+* Marcel Beer
+* Andreas Schmidt
+
 ## Publications
 * Achim D. Brucker and Helmut Petritsch. [Extending access control 
   models with break-glass.](https://www.brucker.ch/bibliography/download/2009/brucker.ea-extending-2009.pdf) 
