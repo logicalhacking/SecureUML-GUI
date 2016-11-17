@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
-<XMI xmi.version = '1.2' xmlns:Model = 'org.omg.xmi.namespace.Model' timestamp = 'Thu Dec 11 19:03:38 CET 2008'>
+<XMI xmi.version = '1.2' xmlns:Model = 'org.omg.xmi.namespace.Model' timestamp = 'Sat Jan 03 17:58:27 CET 2009'>
   <XMI.header>
     <XMI.documentation>
       <XMI.exporter>Netbeans XMI Writer</XMI.exporter>
@@ -693,7 +693,7 @@
         </Model:Tag>
         <Model:Tag xmi.id = 'a79' name = 'subactionsDefinition' annotation = ''
           tagId = 'subactionsDefinition'>
-          <Model:Tag.values>self.resource.attributes.action-&gt;select(name=&quot;read&quot;)-&gt;union(self.resource.associationEnds.association.ends-&gt;minus(self.resource.associationEnds).action-&gt;select(name=&quot;read&quot;))-&gt;union(self.resource.methods-&gt;select(query).action-&gt;select(name=&quot;execute&quot;))</Model:Tag.values>
+          <Model:Tag.values>self.resource.attributes.action-&gt;select(name=&quot;read&quot;)-&gt;union(self.resource.associationEnds.association.ends.action-&gt;select(name=&quot;read&quot;))-&gt;union(self.resource.methods-&gt;select(query).action-&gt;select(name=&quot;execute&quot;))</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a18'/>
           </Model:Tag.elements>
@@ -718,7 +718,7 @@
         </Model:Tag>
         <Model:Tag xmi.id = 'a83' name = 'subactionsDefinition' annotation = ''
           tagId = 'subactionsDefinition'>
-          <Model:Tag.values>self.resource.attributes.action-&gt;select(name=&quot;update&quot;)-&gt;union(resource.associationEnds.association.ends-&gt;minus(self.resource.associationEnds).action-&gt;select(name=&quot;update&quot;))-&gt;union(resource.methods-&gt;select(not query).action-&gt;select(name=&quot;execute&quot;))</Model:Tag.values>
+          <Model:Tag.values>self.resource.attributes.action-&gt;select(name=&quot;update&quot;)-&gt;union(resource.associationEnds.action-&gt;select(name=&quot;update&quot;))-&gt;union(resource.methods-&gt;select(not query).action-&gt;select(name=&quot;execute&quot;))</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a31'/>
           </Model:Tag.elements>
@@ -1086,19 +1086,7 @@
             <Model:Class xmi.id = 'a113' name = 'Resource' annotation = '' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis' isSingleton = 'false'>
               <Model:Namespace.contents>
-                <Model:Attribute xmi.id = 'a128' name = 'name' annotation = '' scope = 'instance_level'
-                  visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
-                  <Model:StructuralFeature.multiplicity>
-                    <XMI.field>1</XMI.field>
-                    <XMI.field>1</XMI.field>
-                    <XMI.field>false</XMI.field>
-                    <XMI.field>false</XMI.field>
-                  </Model:StructuralFeature.multiplicity>
-                  <Model:TypedElement.type>
-                    <Model:PrimitiveType xmi.idref = 'a7'/>
-                  </Model:TypedElement.type>
-                </Model:Attribute>
-                <Model:Reference xmi.id = 'a129' name = 'action' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a128' name = 'action' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1115,11 +1103,11 @@
                 </Model:Reference>
               </Model:Namespace.contents>
             </Model:Class>
-            <Model:Association xmi.id = 'a130' name = 'ActionAssignment' annotation = ''
+            <Model:Association xmi.id = 'a129' name = 'ActionAssignment' annotation = ''
               isRoot = 'false' isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis'
               isDerived = 'false'>
               <Model:Namespace.contents>
-                <Model:AssociationEnd xmi.id = 'a131' name = 'permission' annotation = ''
+                <Model:AssociationEnd xmi.id = 'a130' name = 'permission' annotation = ''
                   isNavigable = 'true' aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1131,7 +1119,7 @@
                     <Model:Class xmi.idref = 'a124'/>
                   </Model:TypedElement.type>
                 </Model:AssociationEnd>
-                <Model:AssociationEnd xmi.id = 'a132' name = 'action' annotation = '' isNavigable = 'true'
+                <Model:AssociationEnd xmi.id = 'a131' name = 'action' annotation = '' isNavigable = 'true'
                   aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1145,11 +1133,11 @@
                 </Model:AssociationEnd>
               </Model:Namespace.contents>
             </Model:Association>
-            <Model:Association xmi.id = 'a133' name = 'PermissionAssignment' annotation = ''
+            <Model:Association xmi.id = 'a132' name = 'PermissionAssignment' annotation = ''
               isRoot = 'false' isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis'
               isDerived = 'false'>
               <Model:Namespace.contents>
-                <Model:AssociationEnd xmi.id = 'a134' name = 'role' annotation = '' isNavigable = 'true'
+                <Model:AssociationEnd xmi.id = 'a133' name = 'role' annotation = '' isNavigable = 'true'
                   aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1161,7 +1149,7 @@
                     <Model:Class xmi.idref = 'a98'/>
                   </Model:TypedElement.type>
                 </Model:AssociationEnd>
-                <Model:AssociationEnd xmi.id = 'a135' name = 'permission' annotation = ''
+                <Model:AssociationEnd xmi.id = 'a134' name = 'permission' annotation = ''
                   isNavigable = 'true' aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1178,7 +1166,7 @@
             <Model:Class xmi.id = 'a124' name = 'Permission' annotation = '' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis' isSingleton = 'false'>
               <Model:Namespace.contents>
-                <Model:Attribute xmi.id = 'a136' name = 'name' annotation = '' scope = 'instance_level'
+                <Model:Attribute xmi.id = 'a135' name = 'name' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1190,7 +1178,7 @@
                     <Model:PrimitiveType xmi.idref = 'a7'/>
                   </Model:TypedElement.type>
                 </Model:Attribute>
-                <Model:Reference xmi.id = 'a137' name = 'authorizationConstraint' annotation = ''
+                <Model:Reference xmi.id = 'a136' name = 'authorizationConstraint' annotation = ''
                   scope = 'instance_level' visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1205,6 +1193,21 @@
                     <Model:AssociationEnd xmi.idref = 'a121'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
+                <Model:Reference xmi.id = 'a137' name = 'action' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>true</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:Class xmi.idref = 'a115'/>
+                  </Model:TypedElement.type>
+                  <Model:Reference.referencedEnd>
+                    <Model:AssociationEnd xmi.idref = 'a131'/>
+                  </Model:Reference.referencedEnd>
+                </Model:Reference>
                 <Model:Reference xmi.id = 'a138' name = 'role' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
@@ -1217,22 +1220,7 @@
                     <Model:Class xmi.idref = 'a98'/>
                   </Model:TypedElement.type>
                   <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a134'/>
-                  </Model:Reference.referencedEnd>
-                </Model:Reference>
-                <Model:Reference xmi.id = 'a139' name = 'action' annotation = '' scope = 'instance_level'
-                  visibility = 'public_vis' isChangeable = 'true'>
-                  <Model:StructuralFeature.multiplicity>
-                    <XMI.field>1</XMI.field>
-                    <XMI.field>1</XMI.field>
-                    <XMI.field>false</XMI.field>
-                    <XMI.field>true</XMI.field>
-                  </Model:StructuralFeature.multiplicity>
-                  <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a115'/>
-                  </Model:TypedElement.type>
-                  <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a132'/>
+                    <Model:AssociationEnd xmi.idref = 'a133'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
               </Model:Namespace.contents>
@@ -1240,7 +1228,7 @@
             <Model:Class xmi.id = 'a115' name = 'Action' annotation = '' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis' isSingleton = 'false'>
               <Model:Namespace.contents>
-                <Model:Attribute xmi.id = 'a140' name = 'name' annotation = '' scope = 'instance_level'
+                <Model:Attribute xmi.id = 'a139' name = 'name' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1252,22 +1240,7 @@
                     <Model:PrimitiveType xmi.idref = 'a7'/>
                   </Model:TypedElement.type>
                 </Model:Attribute>
-                <Model:Reference xmi.id = 'a141' name = 'resource' annotation = '' scope = 'instance_level'
-                  visibility = 'public_vis' isChangeable = 'true'>
-                  <Model:StructuralFeature.multiplicity>
-                    <XMI.field>1</XMI.field>
-                    <XMI.field>1</XMI.field>
-                    <XMI.field>false</XMI.field>
-                    <XMI.field>true</XMI.field>
-                  </Model:StructuralFeature.multiplicity>
-                  <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a113'/>
-                  </Model:TypedElement.type>
-                  <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a112'/>
-                  </Model:Reference.referencedEnd>
-                </Model:Reference>
-                <Model:Reference xmi.id = 'a142' name = 'superactions' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a140' name = 'superactions' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1282,7 +1255,7 @@
                     <Model:AssociationEnd xmi.idref = 'a117'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
-                <Model:Reference xmi.id = 'a143' name = 'permission' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a141' name = 'permission' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1294,7 +1267,22 @@
                     <Model:Class xmi.idref = 'a124'/>
                   </Model:TypedElement.type>
                   <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a131'/>
+                    <Model:AssociationEnd xmi.idref = 'a130'/>
+                  </Model:Reference.referencedEnd>
+                </Model:Reference>
+                <Model:Reference xmi.id = 'a142' name = 'resource' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>true</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:Class xmi.idref = 'a113'/>
+                  </Model:TypedElement.type>
+                  <Model:Reference.referencedEnd>
+                    <Model:AssociationEnd xmi.idref = 'a112'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
               </Model:Namespace.contents>
@@ -1302,7 +1290,7 @@
             <Model:Class xmi.id = 'a98' name = 'Role' annotation = '' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis' isSingleton = 'false'>
               <Model:Namespace.contents>
-                <Model:Attribute xmi.id = 'a144' name = 'name' annotation = '' scope = 'instance_level'
+                <Model:Attribute xmi.id = 'a143' name = 'name' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1314,7 +1302,7 @@
                     <Model:PrimitiveType xmi.idref = 'a7'/>
                   </Model:TypedElement.type>
                 </Model:Attribute>
-                <Model:Reference xmi.id = 'a145' name = 'permission' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a144' name = 'permission' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1326,7 +1314,22 @@
                     <Model:Class xmi.idref = 'a124'/>
                   </Model:TypedElement.type>
                   <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a135'/>
+                    <Model:AssociationEnd xmi.idref = 'a134'/>
+                  </Model:Reference.referencedEnd>
+                </Model:Reference>
+                <Model:Reference xmi.id = 'a145' name = 'subroles' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>0</XMI.field>
+                    <XMI.field>-1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>true</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:Class xmi.idref = 'a98'/>
+                  </Model:TypedElement.type>
+                  <Model:Reference.referencedEnd>
+                    <Model:AssociationEnd xmi.idref = 'a97'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
                 <Model:Reference xmi.id = 'a146' name = 'superroles' annotation = '' scope = 'instance_level'
@@ -1344,22 +1347,7 @@
                     <Model:AssociationEnd xmi.idref = 'a99'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
-                <Model:Reference xmi.id = 'a147' name = 'subroles' annotation = '' scope = 'instance_level'
-                  visibility = 'public_vis' isChangeable = 'true'>
-                  <Model:StructuralFeature.multiplicity>
-                    <XMI.field>0</XMI.field>
-                    <XMI.field>-1</XMI.field>
-                    <XMI.field>false</XMI.field>
-                    <XMI.field>true</XMI.field>
-                  </Model:StructuralFeature.multiplicity>
-                  <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a98'/>
-                  </Model:TypedElement.type>
-                  <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a97'/>
-                  </Model:Reference.referencedEnd>
-                </Model:Reference>
-                <Model:Reference xmi.id = 'a148' name = 'subject' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a147' name = 'subject' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1378,21 +1366,21 @@
             </Model:Class>
           </Model:Namespace.contents>
         </Model:Package>
-        <Model:Tag xmi.id = 'a149' name = 'javax.jmi.packagePrefix' annotation = ''
+        <Model:Tag xmi.id = 'a148' name = 'javax.jmi.packagePrefix' annotation = ''
           tagId = 'javax.jmi.packagePrefix'>
           <Model:Tag.values>ch.ethz.infsec.secureuml</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Package xmi.idref = 'a95'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Package xmi.id = 'a150' name = 'ComponentUml' annotation = '' isRoot = 'false'
+        <Model:Package xmi.id = 'a149' name = 'ComponentUml' annotation = '' isRoot = 'false'
           isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis'>
           <Model:Namespace.contents>
-            <Model:Association xmi.id = 'a151' name = 'EntityMethod' annotation = ''
+            <Model:Association xmi.id = 'a150' name = 'EntityMethod' annotation = ''
               isRoot = 'false' isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis'
               isDerived = 'false'>
               <Model:Namespace.contents>
-                <Model:AssociationEnd xmi.id = 'a152' name = 'entity' annotation = '' isNavigable = 'true'
+                <Model:AssociationEnd xmi.id = 'a151' name = 'entity' annotation = '' isNavigable = 'true'
                   aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1404,7 +1392,7 @@
                     <Model:Class xmi.idref = 'a15'/>
                   </Model:TypedElement.type>
                 </Model:AssociationEnd>
-                <Model:AssociationEnd xmi.id = 'a153' name = 'methods' annotation = '' isNavigable = 'true'
+                <Model:AssociationEnd xmi.id = 'a152' name = 'methods' annotation = '' isNavigable = 'true'
                   aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1418,11 +1406,11 @@
                 </Model:AssociationEnd>
               </Model:Namespace.contents>
             </Model:Association>
-            <Model:Association xmi.id = 'a154' name = 'EntityAttribute' annotation = ''
+            <Model:Association xmi.id = 'a153' name = 'EntityAttribute' annotation = ''
               isRoot = 'false' isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis'
               isDerived = 'false'>
               <Model:Namespace.contents>
-                <Model:AssociationEnd xmi.id = 'a155' name = 'entity' annotation = '' isNavigable = 'true'
+                <Model:AssociationEnd xmi.id = 'a154' name = 'entity' annotation = '' isNavigable = 'true'
                   aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1434,7 +1422,7 @@
                     <Model:Class xmi.idref = 'a15'/>
                   </Model:TypedElement.type>
                 </Model:AssociationEnd>
-                <Model:AssociationEnd xmi.id = 'a156' name = 'attributes' annotation = ''
+                <Model:AssociationEnd xmi.id = 'a155' name = 'attributes' annotation = ''
                   isNavigable = 'true' aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1448,11 +1436,11 @@
                 </Model:AssociationEnd>
               </Model:Namespace.contents>
             </Model:Association>
-            <Model:Association xmi.id = 'a157' name = 'AssociationEndAssociation' annotation = ''
+            <Model:Association xmi.id = 'a156' name = 'AssociationEndAssociation' annotation = ''
               isRoot = 'false' isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis'
               isDerived = 'false'>
               <Model:Namespace.contents>
-                <Model:AssociationEnd xmi.id = 'a158' name = 'ends' annotation = '' isNavigable = 'true'
+                <Model:AssociationEnd xmi.id = 'a157' name = 'ends' annotation = '' isNavigable = 'true'
                   aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>2</XMI.field>
@@ -1464,7 +1452,7 @@
                     <Model:Class xmi.idref = 'a43'/>
                   </Model:TypedElement.type>
                 </Model:AssociationEnd>
-                <Model:AssociationEnd xmi.id = 'a159' name = 'association' annotation = ''
+                <Model:AssociationEnd xmi.id = 'a158' name = 'association' annotation = ''
                   isNavigable = 'true' aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1473,16 +1461,16 @@
                     <XMI.field>true</XMI.field>
                   </Model:AssociationEnd.multiplicity>
                   <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a160'/>
+                    <Model:Class xmi.idref = 'a159'/>
                   </Model:TypedElement.type>
                 </Model:AssociationEnd>
               </Model:Namespace.contents>
             </Model:Association>
-            <Model:Association xmi.id = 'a161' name = 'EntityAssociationEnd' annotation = ''
+            <Model:Association xmi.id = 'a160' name = 'EntityAssociationEnd' annotation = ''
               isRoot = 'false' isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis'
               isDerived = 'false'>
               <Model:Namespace.contents>
-                <Model:AssociationEnd xmi.id = 'a162' name = 'type' annotation = '' isNavigable = 'true'
+                <Model:AssociationEnd xmi.id = 'a161' name = 'type' annotation = '' isNavigable = 'true'
                   aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1494,7 +1482,7 @@
                     <Model:Class xmi.idref = 'a15'/>
                   </Model:TypedElement.type>
                 </Model:AssociationEnd>
-                <Model:AssociationEnd xmi.id = 'a163' name = 'associationEnds' annotation = ''
+                <Model:AssociationEnd xmi.id = 'a162' name = 'associationEnds' annotation = ''
                   isNavigable = 'true' aggregation = 'none' isChangeable = 'true'>
                   <Model:AssociationEnd.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1511,6 +1499,18 @@
             <Model:Class xmi.id = 'a75' name = 'Method' annotation = '' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis' isSingleton = 'false'>
               <Model:Namespace.contents>
+                <Model:Attribute xmi.id = 'a163' name = 'name' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>false</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:PrimitiveType xmi.idref = 'a7'/>
+                  </Model:TypedElement.type>
+                </Model:Attribute>
                 <Model:Attribute xmi.id = 'a164' name = 'query' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
                   <Model:StructuralFeature.multiplicity>
@@ -1535,7 +1535,7 @@
                     <Model:Class xmi.idref = 'a15'/>
                   </Model:TypedElement.type>
                   <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a152'/>
+                    <Model:AssociationEnd xmi.idref = 'a151'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
                 <Model:Reference xmi.id = 'a166' name = 'execute' annotation = '' scope = 'instance_level'
@@ -1561,21 +1561,18 @@
             <Model:Class xmi.id = 'a59' name = 'Attribute' annotation = '' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis' isSingleton = 'false'>
               <Model:Namespace.contents>
-                <Model:Reference xmi.id = 'a167' name = 'update' annotation = '' scope = 'instance_level'
-                  visibility = 'public_vis' isChangeable = 'true'>
+                <Model:Attribute xmi.id = 'a167' name = 'name' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
                     <XMI.field>1</XMI.field>
                     <XMI.field>false</XMI.field>
-                    <XMI.field>true</XMI.field>
+                    <XMI.field>false</XMI.field>
                   </Model:StructuralFeature.multiplicity>
                   <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a62'/>
+                    <Model:PrimitiveType xmi.idref = 'a7'/>
                   </Model:TypedElement.type>
-                  <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a61'/>
-                  </Model:Reference.referencedEnd>
-                </Model:Reference>
+                </Model:Attribute>
                 <Model:Reference xmi.id = 'a168' name = 'read' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
@@ -1591,7 +1588,22 @@
                     <Model:AssociationEnd xmi.idref = 'a56'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
-                <Model:Reference xmi.id = 'a169' name = 'fullAccess' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a169' name = 'update' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>true</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:Class xmi.idref = 'a62'/>
+                  </Model:TypedElement.type>
+                  <Model:Reference.referencedEnd>
+                    <Model:AssociationEnd xmi.idref = 'a61'/>
+                  </Model:Reference.referencedEnd>
+                </Model:Reference>
+                <Model:Reference xmi.id = 'a170' name = 'fullAccess' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1606,7 +1618,7 @@
                     <Model:AssociationEnd xmi.idref = 'a66'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
-                <Model:Reference xmi.id = 'a170' name = 'entity' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a171' name = 'entity' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1618,7 +1630,7 @@
                     <Model:Class xmi.idref = 'a15'/>
                   </Model:TypedElement.type>
                   <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a155'/>
+                    <Model:AssociationEnd xmi.idref = 'a154'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
               </Model:Namespace.contents>
@@ -1626,10 +1638,10 @@
                 <Model:Class xmi.idref = 'a113'/>
               </Model:GeneralizableElement.supertypes>
             </Model:Class>
-            <Model:Class xmi.id = 'a160' name = 'Association' annotation = '' isRoot = 'false'
+            <Model:Class xmi.id = 'a159' name = 'Association' annotation = '' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis' isSingleton = 'false'>
               <Model:Namespace.contents>
-                <Model:Attribute xmi.id = 'a171' name = 'name' annotation = '' scope = 'instance_level'
+                <Model:Attribute xmi.id = 'a172' name = 'name' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1641,7 +1653,7 @@
                     <Model:PrimitiveType xmi.idref = 'a7'/>
                   </Model:TypedElement.type>
                 </Model:Attribute>
-                <Model:Reference xmi.id = 'a172' name = 'ends' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a173' name = 'ends' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>2</XMI.field>
@@ -1653,7 +1665,7 @@
                     <Model:Class xmi.idref = 'a43'/>
                   </Model:TypedElement.type>
                   <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a158'/>
+                    <Model:AssociationEnd xmi.idref = 'a157'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
               </Model:Namespace.contents>
@@ -1661,22 +1673,19 @@
             <Model:Class xmi.id = 'a43' name = 'AssociationEnd' annotation = '' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis' isSingleton = 'false'>
               <Model:Namespace.contents>
-                <Model:Reference xmi.id = 'a173' name = 'type' annotation = '' scope = 'instance_level'
-                  visibility = 'public_vis' isChangeable = 'true'>
+                <Model:Attribute xmi.id = 'a174' name = 'name' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
                     <XMI.field>1</XMI.field>
                     <XMI.field>false</XMI.field>
-                    <XMI.field>true</XMI.field>
+                    <XMI.field>false</XMI.field>
                   </Model:StructuralFeature.multiplicity>
                   <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a15'/>
+                    <Model:PrimitiveType xmi.idref = 'a7'/>
                   </Model:TypedElement.type>
-                  <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a162'/>
-                  </Model:Reference.referencedEnd>
-                </Model:Reference>
-                <Model:Reference xmi.id = 'a174' name = 'update' annotation = '' scope = 'instance_level'
+                </Model:Attribute>
+                <Model:Reference xmi.id = 'a175' name = 'update' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1691,7 +1700,37 @@
                     <Model:AssociationEnd xmi.idref = 'a51'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
-                <Model:Reference xmi.id = 'a175' name = 'read' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a176' name = 'association' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>true</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:Class xmi.idref = 'a159'/>
+                  </Model:TypedElement.type>
+                  <Model:Reference.referencedEnd>
+                    <Model:AssociationEnd xmi.idref = 'a158'/>
+                  </Model:Reference.referencedEnd>
+                </Model:Reference>
+                <Model:Reference xmi.id = 'a177' name = 'type' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>true</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:Class xmi.idref = 'a15'/>
+                  </Model:TypedElement.type>
+                  <Model:Reference.referencedEnd>
+                    <Model:AssociationEnd xmi.idref = 'a161'/>
+                  </Model:Reference.referencedEnd>
+                </Model:Reference>
+                <Model:Reference xmi.id = 'a178' name = 'read' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1706,7 +1745,7 @@
                     <Model:AssociationEnd xmi.idref = 'a45'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
-                <Model:Reference xmi.id = 'a176' name = 'fullAccess' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a179' name = 'fullAccess' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1721,21 +1760,6 @@
                     <Model:AssociationEnd xmi.idref = 'a40'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
-                <Model:Reference xmi.id = 'a177' name = 'association' annotation = '' scope = 'instance_level'
-                  visibility = 'public_vis' isChangeable = 'true'>
-                  <Model:StructuralFeature.multiplicity>
-                    <XMI.field>1</XMI.field>
-                    <XMI.field>1</XMI.field>
-                    <XMI.field>false</XMI.field>
-                    <XMI.field>true</XMI.field>
-                  </Model:StructuralFeature.multiplicity>
-                  <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a160'/>
-                  </Model:TypedElement.type>
-                  <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a159'/>
-                  </Model:Reference.referencedEnd>
-                </Model:Reference>
               </Model:Namespace.contents>
               <Model:GeneralizableElement.supertypes>
                 <Model:Class xmi.idref = 'a113'/>
@@ -1744,37 +1768,19 @@
             <Model:Class xmi.id = 'a15' name = 'Entity' annotation = '' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false' visibility = 'public_vis' isSingleton = 'false'>
               <Model:Namespace.contents>
-                <Model:Reference xmi.id = 'a178' name = 'associationEnds' annotation = ''
-                  scope = 'instance_level' visibility = 'public_vis' isChangeable = 'true'>
-                  <Model:StructuralFeature.multiplicity>
-                    <XMI.field>0</XMI.field>
-                    <XMI.field>-1</XMI.field>
-                    <XMI.field>false</XMI.field>
-                    <XMI.field>true</XMI.field>
-                  </Model:StructuralFeature.multiplicity>
-                  <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a43'/>
-                  </Model:TypedElement.type>
-                  <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a163'/>
-                  </Model:Reference.referencedEnd>
-                </Model:Reference>
-                <Model:Reference xmi.id = 'a179' name = 'read' annotation = '' scope = 'instance_level'
-                  visibility = 'public_vis' isChangeable = 'true'>
+                <Model:Attribute xmi.id = 'a180' name = 'name' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true' isDerived = 'false'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
                     <XMI.field>1</XMI.field>
                     <XMI.field>false</XMI.field>
-                    <XMI.field>true</XMI.field>
+                    <XMI.field>false</XMI.field>
                   </Model:StructuralFeature.multiplicity>
                   <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a18'/>
+                    <Model:PrimitiveType xmi.idref = 'a7'/>
                   </Model:TypedElement.type>
-                  <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a17'/>
-                  </Model:Reference.referencedEnd>
-                </Model:Reference>
-                <Model:Reference xmi.id = 'a180' name = 'create' annotation = '' scope = 'instance_level'
+                </Model:Attribute>
+                <Model:Reference xmi.id = 'a181' name = 'create' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1789,7 +1795,7 @@
                     <Model:AssociationEnd xmi.idref = 'a12'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
-                <Model:Reference xmi.id = 'a181' name = 'update' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a182' name = 'read' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>1</XMI.field>
@@ -1798,25 +1804,10 @@
                     <XMI.field>true</XMI.field>
                   </Model:StructuralFeature.multiplicity>
                   <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a31'/>
+                    <Model:Class xmi.idref = 'a18'/>
                   </Model:TypedElement.type>
                   <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a30'/>
-                  </Model:Reference.referencedEnd>
-                </Model:Reference>
-                <Model:Reference xmi.id = 'a182' name = 'methods' annotation = '' scope = 'instance_level'
-                  visibility = 'public_vis' isChangeable = 'true'>
-                  <Model:StructuralFeature.multiplicity>
-                    <XMI.field>0</XMI.field>
-                    <XMI.field>-1</XMI.field>
-                    <XMI.field>false</XMI.field>
-                    <XMI.field>true</XMI.field>
-                  </Model:StructuralFeature.multiplicity>
-                  <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a75'/>
-                  </Model:TypedElement.type>
-                  <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a153'/>
+                    <Model:AssociationEnd xmi.idref = 'a17'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
                 <Model:Reference xmi.id = 'a183' name = 'delete' annotation = '' scope = 'instance_level'
@@ -1834,7 +1825,7 @@
                     <Model:AssociationEnd xmi.idref = 'a23'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
-                <Model:Reference xmi.id = 'a184' name = 'attributes' annotation = '' scope = 'instance_level'
+                <Model:Reference xmi.id = 'a184' name = 'methods' annotation = '' scope = 'instance_level'
                   visibility = 'public_vis' isChangeable = 'true'>
                   <Model:StructuralFeature.multiplicity>
                     <XMI.field>0</XMI.field>
@@ -1843,10 +1834,10 @@
                     <XMI.field>true</XMI.field>
                   </Model:StructuralFeature.multiplicity>
                   <Model:TypedElement.type>
-                    <Model:Class xmi.idref = 'a59'/>
+                    <Model:Class xmi.idref = 'a75'/>
                   </Model:TypedElement.type>
                   <Model:Reference.referencedEnd>
-                    <Model:AssociationEnd xmi.idref = 'a156'/>
+                    <Model:AssociationEnd xmi.idref = 'a152'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
                 <Model:Reference xmi.id = 'a185' name = 'fullAccess' annotation = '' scope = 'instance_level'
@@ -1864,6 +1855,51 @@
                     <Model:AssociationEnd xmi.idref = 'a34'/>
                   </Model:Reference.referencedEnd>
                 </Model:Reference>
+                <Model:Reference xmi.id = 'a186' name = 'update' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>true</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:Class xmi.idref = 'a31'/>
+                  </Model:TypedElement.type>
+                  <Model:Reference.referencedEnd>
+                    <Model:AssociationEnd xmi.idref = 'a30'/>
+                  </Model:Reference.referencedEnd>
+                </Model:Reference>
+                <Model:Reference xmi.id = 'a187' name = 'attributes' annotation = '' scope = 'instance_level'
+                  visibility = 'public_vis' isChangeable = 'true'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>0</XMI.field>
+                    <XMI.field>-1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>true</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:Class xmi.idref = 'a59'/>
+                  </Model:TypedElement.type>
+                  <Model:Reference.referencedEnd>
+                    <Model:AssociationEnd xmi.idref = 'a155'/>
+                  </Model:Reference.referencedEnd>
+                </Model:Reference>
+                <Model:Reference xmi.id = 'a188' name = 'associationEnds' annotation = ''
+                  scope = 'instance_level' visibility = 'public_vis' isChangeable = 'true'>
+                  <Model:StructuralFeature.multiplicity>
+                    <XMI.field>0</XMI.field>
+                    <XMI.field>-1</XMI.field>
+                    <XMI.field>false</XMI.field>
+                    <XMI.field>true</XMI.field>
+                  </Model:StructuralFeature.multiplicity>
+                  <Model:TypedElement.type>
+                    <Model:Class xmi.idref = 'a43'/>
+                  </Model:TypedElement.type>
+                  <Model:Reference.referencedEnd>
+                    <Model:AssociationEnd xmi.idref = 'a162'/>
+                  </Model:Reference.referencedEnd>
+                </Model:Reference>
               </Model:Namespace.contents>
               <Model:GeneralizableElement.supertypes>
                 <Model:Class xmi.idref = 'a113'/>
@@ -1871,152 +1907,170 @@
             </Model:Class>
           </Model:Namespace.contents>
         </Model:Package>
-        <Model:Tag xmi.id = 'a186' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
+        <Model:Tag xmi.id = 'a189' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
           <Model:Tag.values>getOwner</Model:Tag.values>
+          <Model:Tag.elements>
+            <Model:AssociationEnd xmi.idref = 'a151'/>
+          </Model:Tag.elements>
+        </Model:Tag>
+        <Model:Tag xmi.id = 'a190' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
+          <Model:Tag.values>getFeature</Model:Tag.values>
           <Model:Tag.elements>
             <Model:AssociationEnd xmi.idref = 'a152'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a187' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
-          <Model:Tag.values>getFeature</Model:Tag.values>
+        <Model:Tag xmi.id = 'a191' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
+          <Model:Tag.values>getOwner</Model:Tag.values>
           <Model:Tag.elements>
-            <Model:AssociationEnd xmi.idref = 'a153'/>
+            <Model:AssociationEnd xmi.idref = 'a154'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a188' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
-          <Model:Tag.values>getOwner</Model:Tag.values>
+        <Model:Tag xmi.id = 'a192' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
+          <Model:Tag.values>getFeature</Model:Tag.values>
           <Model:Tag.elements>
             <Model:AssociationEnd xmi.idref = 'a155'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a189' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
-          <Model:Tag.values>getFeature</Model:Tag.values>
-          <Model:Tag.elements>
-            <Model:AssociationEnd xmi.idref = 'a156'/>
-          </Model:Tag.elements>
-        </Model:Tag>
-        <Model:Tag xmi.id = 'a190' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
+        <Model:Tag xmi.id = 'a193' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
           <Model:Tag.values>getConnection</Model:Tag.values>
           <Model:Tag.elements>
-            <Model:AssociationEnd xmi.idref = 'a158'/>
-          </Model:Tag.elements>
-        </Model:Tag>
-        <Model:Tag xmi.id = 'a191' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
-          <Model:Tag.values>getAssociation</Model:Tag.values>
-          <Model:Tag.elements>
-            <Model:AssociationEnd xmi.idref = 'a159'/>
-          </Model:Tag.elements>
-        </Model:Tag>
-        <Model:Tag xmi.id = 'a192' name = 'umlAssociationName' annotation = '' tagId = 'umlAssociationName'>
-          <Model:Tag.values>AParticipantAssociation</Model:Tag.values>
-          <Model:Tag.elements>
-            <Model:Association xmi.idref = 'a161'/>
-          </Model:Tag.elements>
-        </Model:Tag>
-        <Model:Tag xmi.id = 'a193' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
-          <Model:Tag.values>getParticipant</Model:Tag.values>
-          <Model:Tag.elements>
-            <Model:AssociationEnd xmi.idref = 'a162'/>
+            <Model:AssociationEnd xmi.idref = 'a157'/>
           </Model:Tag.elements>
         </Model:Tag>
         <Model:Tag xmi.id = 'a194' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
           <Model:Tag.values>getAssociation</Model:Tag.values>
           <Model:Tag.elements>
-            <Model:AssociationEnd xmi.idref = 'a163'/>
+            <Model:AssociationEnd xmi.idref = 'a158'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a195' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
+        <Model:Tag xmi.id = 'a195' name = 'umlPropertyGetter' annotation = '' tagId = 'umlPropertyGetter'>
+          <Model:Tag.values>getParticipant</Model:Tag.values>
+          <Model:Tag.elements>
+            <Model:AssociationEnd xmi.idref = 'a161'/>
+          </Model:Tag.elements>
+        </Model:Tag>
+        <Model:Tag xmi.id = 'a196' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
           <Model:Tag.values>Operation</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a75'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a196' name = 'actionStereotype' annotation = '' tagId = 'actionStereotype'>
+        <Model:Tag xmi.id = 'a197' name = 'actionStereotype' annotation = '' tagId = 'actionStereotype'>
           <Model:Tag.values>compuml.entitymethodaction</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a75'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a197' name = 'anchorPath' annotation = '' tagId = 'anchorPath'>
+        <Model:Tag xmi.id = 'a198' name = 'anchorPath' annotation = '' tagId = 'anchorPath'>
           <Model:Tag.values>self.entity</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a75'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a198' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
+        <Model:Tag xmi.id = 'a199' name = 'umlPropertyName' annotation = '' tagId = 'umlPropertyName'>
+          <Model:Tag.values>name</Model:Tag.values>
+          <Model:Tag.elements>
+            <Model:Attribute xmi.idref = 'a163'/>
+          </Model:Tag.elements>
+        </Model:Tag>
+        <Model:Tag xmi.id = 'a200' name = 'umlPropertyName' annotation = '' tagId = 'umlPropertyName'>
+          <Model:Tag.values>query</Model:Tag.values>
+          <Model:Tag.elements>
+            <Model:Attribute xmi.idref = 'a164'/>
+          </Model:Tag.elements>
+        </Model:Tag>
+        <Model:Tag xmi.id = 'a201' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
           <Model:Tag.values>Attribute</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a59'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a199' name = 'actionStereotype' annotation = '' tagId = 'actionStereotype'>
+        <Model:Tag xmi.id = 'a202' name = 'actionStereotype' annotation = '' tagId = 'actionStereotype'>
           <Model:Tag.values>compuml.entityattributeaction</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a59'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a200' name = 'anchorPath' annotation = '' tagId = 'anchorPath'>
+        <Model:Tag xmi.id = 'a203' name = 'anchorPath' annotation = '' tagId = 'anchorPath'>
           <Model:Tag.values>self.entity</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a59'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a201' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
-          <Model:Tag.values>UmlAssociation</Model:Tag.values>
+        <Model:Tag xmi.id = 'a204' name = 'umlPropertyName' annotation = '' tagId = 'umlPropertyName'>
+          <Model:Tag.values>name</Model:Tag.values>
           <Model:Tag.elements>
-            <Model:Class xmi.idref = 'a160'/>
+            <Model:Attribute xmi.idref = 'a167'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a202' name = 'resourcePath' annotation = '' tagId = 'resourcePath'>
+        <Model:Tag xmi.id = 'a205' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
+          <Model:Tag.values>Association</Model:Tag.values>
+          <Model:Tag.elements>
+            <Model:Class xmi.idref = 'a159'/>
+          </Model:Tag.elements>
+        </Model:Tag>
+        <Model:Tag xmi.id = 'a206' name = 'resourcePath' annotation = '' tagId = 'resourcePath'>
           <Model:Tag.values>self.associationEnds</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a43'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a203' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
+        <Model:Tag xmi.id = 'a207' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
           <Model:Tag.values>AssociationEnd</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a43'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a204' name = 'actionStereotype' annotation = '' tagId = 'actionStereotype'>
+        <Model:Tag xmi.id = 'a208' name = 'actionStereotype' annotation = '' tagId = 'actionStereotype'>
           <Model:Tag.values>compuml.associationendaction</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a43'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a205' name = 'anchorPath' annotation = '' tagId = 'anchorPath'>
+        <Model:Tag xmi.id = 'a209' name = 'anchorPath' annotation = '' tagId = 'anchorPath'>
           <Model:Tag.values>self.association.ends-&gt;minus(self).type</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a43'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a206' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
+        <Model:Tag xmi.id = 'a210' name = 'umlPropertyName' annotation = '' tagId = 'umlPropertyName'>
+          <Model:Tag.values>name</Model:Tag.values>
+          <Model:Tag.elements>
+            <Model:Attribute xmi.idref = 'a174'/>
+          </Model:Tag.elements>
+        </Model:Tag>
+        <Model:Tag xmi.id = 'a211' name = 'umlClassName' annotation = '' tagId = 'umlClassName'>
           <Model:Tag.values>UmlClass</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a15'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a207' name = 'actionStereotype' annotation = '' tagId = 'actionStereotype'>
+        <Model:Tag xmi.id = 'a212' name = 'actionStereotype' annotation = '' tagId = 'actionStereotype'>
           <Model:Tag.values>compumml.entityaction</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a15'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a208' name = 'anchorPath' annotation = '' tagId = 'anchorPath'>
+        <Model:Tag xmi.id = 'a213' name = 'anchorPath' annotation = '' tagId = 'anchorPath'>
           <Model:Tag.values>self</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a15'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Tag xmi.id = 'a209' name = 'modelElementStereotype' annotation = ''
+        <Model:Tag xmi.id = 'a214' name = 'modelElementStereotype' annotation = ''
           tagId = 'modelElementStereotype'>
           <Model:Tag.values>compuml.entity</Model:Tag.values>
           <Model:Tag.elements>
             <Model:Class xmi.idref = 'a15'/>
           </Model:Tag.elements>
         </Model:Tag>
-        <Model:Import xmi.id = 'a210' name = 'PrimitiveTypes' annotation = '' visibility = 'public_vis'
+        <Model:Tag xmi.id = 'a215' name = 'umlPropertyName' annotation = '' tagId = 'umlPropertyName'>
+          <Model:Tag.values>Name</Model:Tag.values>
+          <Model:Tag.elements>
+            <Model:Attribute xmi.idref = 'a180'/>
+          </Model:Tag.elements>
+        </Model:Tag>
+        <Model:Import xmi.id = 'a216' name = 'PrimitiveTypes' annotation = '' visibility = 'public_vis'
           isClustered = 'false'>
           <Model:Import.importedNamespace>
             <Model:Package xmi.idref = 'a1'/>
