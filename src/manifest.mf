@@ -1,0 +1,12 @@
+Manifest-Version: 2.0
+Class-Path: argouml.jar argo_secureuml_resources.jar
+Created-By: 1.2 (Sun Microsystems Inc.) 
+
+Name: ch/ethz/infsec/secureumlgui/SecureUmlModule.class
+Extension-name: module.ui.secureuml.sumodule
+Specification-Title: ArgoUML SecureUml Module 
+Specification-Version: 0.4.2
+Specification-Vendor: ETH Zuerich
+Implementation-Vendor: ETH Zuerich
+Implementation-Version: 0.4.2
+Implementation-Title: ArgoUML SecureUml Module

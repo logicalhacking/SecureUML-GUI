@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project name="argouml-module" default="usage" basedir=".">
+  <property file="local.properties"/>
+  <property file="module.properties"/>
+  <property name="Name" value="ArgoModule-${argo.module.name}"/>
+  <property name="name" value="argomodule-${argo.module.name}"/>
+  <tstamp>
+    <format property="year" pattern="yyyy"/>
+  </tstamp>
+  <property name="version" value="0.9.3-${DSTAMP}-${TSTAMP}"/>
+  <echo message="------------------- ${Name} ${version} [${year}] ----------------" level="info"/>
+  <path id="argo.classpath">
+    <pathelement path="${classpath}"/>
+    <fileset dir="${argo.home.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+    <pathelement location="classes"/>
+    <pathelement location="${junit.lib.file}"/>
+  </path>
+  <property name="module.build.dir" value="build"/>
+  <property name="module.build.src" value="src"/>
+  <property name="module.build.dest" value="${module.build.dir}/classes"/>
+  <property name="javadoc.dir" value="${basedir}/javadoc"/>
+  <property name="packages" value="ch.ethz.*"/>
+  <property name="manifest" value="manifest.mf"/>
+  <property name="manifest.src" value="${module.build.src}/${manifest}"/>
+  <property name="module.jarfile.name" value="${argo.module.jarfile}.jar"/>
+  <property name="module.jarfile" value="${module.build.dir}/${module.jarfile.name}"/>
+  <property name="test.src" value="test"/>
+  <property name="test.dir" value="${module.build.dir}/test"/>
+  <property name="test.data.dir" value="${test.dir}/data"/>
+  <property name="test.reports.dir" value="${test.dir}/reports"/>
+  <property file="${user.home}/.argo.ant.properties"/>
+  <property file="${user.home}/.ant.properties"/>
+  <!-- Compiler flags -->
+  <property name="debug" value="on"/>
+  <property name="optimize" value="off"/>
+  <property name="deprecation" value="off"/>
+  <property name="developer.lib.dir" value="${argo.build.dir}"/>
+  <property name="pmd.report.file" value="pmd_report.html"/>
+  <property name="argo.log.file.name" value="out.txt"/>
+  <!-- =================================================================== -->
+  <!-- Initialization target						 -->
+  <!-- =================================================================== -->
+  <target name="init">
+    <!-- create directories -->
+    <mkdir dir="${module.build.dest}"/>
+    <mkdir dir="${test.dir}"/>
+    <delete dir="${test.reports.dir}"/>
+    <delete dir="${test.data.dir}"/>
+    <mkdir dir="${test.reports.dir}"/>
+    <mkdir dir="${test.data.dir}"/>
+  </target>
+  <!-- Note this file can only make Ant display values set in the file correctly, -->
+  <!-- but external values in the environment or properties file will be operational.  -->
+  <!-- =================================================================== -->
+  <!-- Help on usage							 -->
+  <!-- =================================================================== -->
+  <target name="usage" depends="init" description="Show the usage and the different targets">
+    <echo level="info">
+		${Name} Build file
+		-------------------------------------------------------------
+	
+		available targets are:
+	
+		usage		--&gt; Show this message (default).
+		compile		--&gt; Compiles the source code to the tree under '${module.build.src}'.
+		package		--&gt; Generates the '${module.jarfile.name}' file.
+		install		--&gt; Install module '${argo.module.name}'.
+		clean		--&gt; Removes compiled files.
+		javadoc		--&gt; Generates the JavaDoc in '${javadoc.dir}'.
+		checkstyle	--&gt; Check code style with CheckStyle
+		pmd		--&gt; Check the code sanity with PMD and write the report to '${pmd.report.file}'.
+		junit		--&gt; Run the JUnit test suites.
+		run		--&gt; Run argouml with the newest version of the secure uml module.
+	
+		Caution:
+		=========
+		The build process assumes that ${argo.hom} points to
+		the ArgoUML installation, i.e., the directory that
+		contains the ArgoUML jar files. For example, this property
+		can be set on the command line as follows:
+		ant -Dargo.home.dir="/usr/local/argouml-0.24/" install
+		or you may adapt the property in the 'local.properties' file.
+		-------------------------------------------------------------
+		</echo>
+  </target>
+  <!-- =================================================================== -->
+  <!-- Compiles the source directory					 -->
+  <!-- =================================================================== -->
+  <target name="compile" depends="init" description="Compile the project">
+    <javac srcdir="${module.build.src}" destdir="${module.build.dest}" excludes="*.txt,*.bat,*.xml,*.sh" debug="${debug}" deprecation="${deprecation}" optimize="${optimize}">
+      <classpath>
+        <path refid="argo.classpath"/>
+      </classpath>
+    </javac>
+  </target>
+  <!-- =================================================================== -->
+  <!-- Creates the class package						 -->
+  <!-- =================================================================== -->
+  <target name="package" depends="compile" description="Generate the jar package of the module">
+    <filter token="version" value="${version}"/>
+    <copy file="${manifest.src}" tofile="${module.build.dest}/${manifest}" filtering="on" overwrite="on"/>
+    <copy todir="${module.build.dest}">
+      <fileset dir="${module.build.src}" includes="**/*.png"/>
+    </copy>
+    <jar jarfile="${module.jarfile}" basedir="${module.build.dest}" includes="ch/ethz/**,**/*.png,**/*.xmi" excludes="*.txt,*.bat,*.xml,*.sh,${manifest}" manifest="${module.build.dest}/${manifest}"/>
+  </target>
+  <!-- =================================================================== -->
+  <!-- Clean targets							 -->
+  <!-- =================================================================== -->
+  <target name="clean" description="Remove the compiled files">
+    <delete includeemptydirs="true">
+      <fileset dir="build" includes="**/*"/>
+    </delete>
+  </target>
+  <!-- =================================================================== -->
+  <!-- Move the jar file into the extension directory.			 -->
+  <!-- =================================================================== -->
+  <target name="install" depends="package" description="Install the newest module in the argouml 'ext' directory">
+    <copy todir="${argo.home.dir}/ext">
+      <fileset dir="${module.build.dir}" includes="${module.jarfile.name}"/>
+      <fileset dir="metamodels" includes="**/*mof.xmi"/>
+    </copy>
+    <!-- <mkdir dir="${argo.home.dir}/ext/icons"/> -->
+    <!-- <copy todir="${argo.home.dir}/ext/icons"> -->
+    <!-- 	<fileset dir="icons" includes="**/*.png"/> -->
+    <!-- </copy> -->
+  </target>
+  <!-- Generate javadoc -->
+  <target name="javadoc" description="Generate JavaDoc in '${javadoc.dir}'">
+    <path id="javadoc.path">
+      <pathelement location="${module.build.src}"/>
+      <pathelement location="${test.src}"/>
+    </path>
+    <javadoc sourcepathref="javadoc.path" destdir="${javadoc.dir}" access="private" overview="${module.build.src}/overview.html">
+      <group title="SecureUML GUI">
+        <package name="ch.ethz.*"/>
+        <!-- <excludepackage name="ch.ethz.infsec.secureumlgui.usecasemapper.*" /> -->
+      </group>
+      <group title="Use-Case Mapper" packages="ch.ethz.infsec.secureumlgui.usecasemapper.*"/>
+      <classpath>
+        <pathelement location="${junit.lib.file}"/>
+        <pathelement location="${module.build.src}"/>
+        <path refid="argo.classpath"/>
+      </classpath>
+    </javadoc>
+  </target>
+  <!-- Check code style with CheckStyle -->
+  <target name="checkstyle" description="Check code style with CheckStyle" depends="init">
+    <path id="checkstyle.path">
+      <pathelement location="${checkstyle.lib.path}/checkstyle-all-4.4.jar"/>
+    </path>
+    <taskdef resource="checkstyletask.properties" classpathref="checkstyle.path"/>
+    <checkstyle config="checkstyle.xml" failOnViolation="false" failureProperty="test.failed">
+      <classpath refid="argo.classpath"/>
+      <fileset dir="${module.build.src}" includes="**/usecasemapper/**/*.java"/>
+      <fileset dir="${test.src}" includes="**/usecasemapper/**/*.java"/>
+      <formatter type="plain"/>
+      <formatter type="xml" toFile="${test.data.dir}/checkstyle_report.xml"/>
+    </checkstyle>
+    <xslt in="${test.data.dir}/checkstyle_report.xml" out="${test.reports.dir}/checkstyle_report.html" style="${checkstyle.lib.path}/contrib/checkstyle-frames.xsl"/>
+  </target>
+  <!-- Check code sanity with PMD -->
+  <target name="pmd" description="Check code sanity with PMD and write to '${pmd.report.file}'" depends="init">
+    <path id="pmd.classpath">
+      <fileset dir="${pmd.lib.path}">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+    <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath"/>
+    <pmd rulesetfiles="basic,braces,codesize,coupling,design,imports,logging-java,naming,optimizations,strings,unusedcode" shortFilenames="true">
+      <formatter type="html" toFile="${test.reports.dir}/${pmd.report.file}" linkPrefix="http://pmd.sourceforge.net/xref/"/>
+      <fileset dir="${module.build.src}">
+        <include name="**/usecasemapper/**/*.java"/>
+      </fileset>
+      <fileset dir="${test.src}" includes="**/usecasemapper/**/*.java"/>
+    </pmd>
+  </target>
+  <!-- Compile JUnit tests -->
+  <target name="test-compile" depends="init">
+    <javac srcdir="${test.src}" destdir="${module.build.dest}" excludes="*.txt,*.bat,*.xml,*.sh" debug="${debug}" deprecation="${deprecation}" optimize="${optimize}">
+      <classpath>
+        <pathelement location="${junit.lib.file}"/>
+        <pathelement path="${module.build.dest}"/>
+        <path refid="argo.classpath"/>
+      </classpath>
+    </javac>
+  </target>
+  <!-- Run JUnit tests -->
+  <!-- Note: The junitreport-task requires an XSLT-processor, so to use the 
+	XML-reporting you must have a XSLT-Library in your ant environment, ie.
+	in $ANT_HOME/lib or ~/.ant/lib or passed either by the $ANT_ARGS environment variable
+	or directly to ant with the option -lib.
+	For this setup, the xalan XSLT-processor http://xml.apache.org/xalan-j/ has been used. -->
+  <target name="test" depends="compile, test-compile" description="Runs the JUnit test suites">
+    <junit fork="true" errorProperty="test.failed" failureProperty="test.failed">
+      <formatter type="brief" usefile="false"/>
+      <formatter type="xml"/>
+      <classpath>
+        <pathelement location="${junit.lib.file}"/>
+        <pathelement path="${module.build.dest}"/>
+        <path refid="argo.classpath"/>
+        <pathelement location="${test.src}"/>
+      </classpath>
+      <batchtest todir="${test.data.dir}">
+        <fileset dir="${module.build.dest}" includes="**/*Test.class"/>
+      </batchtest>
+    </junit>
+    <junitreport todir="${test.data.dir}">
+      <fileset dir="${test.data.dir}" includes="TEST-*.xml"/>
+      <report format="frames" todir="${test.reports.dir}"/>
+    </junitreport>
+    <fail message="Tests failed!" if="test.failed"/>
+  </target>
+  <!-- Run argouml with newest module -->
+  <target name="run" depends="install" description="Starts argouml with the newest version of the SecureUML GUI">
+    <java dir="${argo.home.dir}" jar="${argo.home.dir}/argouml.jar" fork="true" failOnError="true" output="${argo.log.file.name}">
+      <classpath>
+        <pathelement location="${argo.home.dir}"/>
+      </classpath>
+      <!-- <jvmarg value="-Dlog4j.configuration=org/argouml/resource/full_console.lcf"/> -->
+    </java>
+  </target>
+</project>
+<!-- End of file -->
