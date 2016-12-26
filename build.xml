@@ -89,7 +89,7 @@
   <!-- Compiles the source directory					 -->
   <!-- =================================================================== -->
   <target name="compile" depends="init" description="Compile the project">
-    <javac srcdir="${module.build.src}" destdir="${module.build.dest}" excludes="*.txt,*.bat,*.xml,*.sh" debug="${debug}" deprecation="${deprecation}" optimize="${optimize}">
+    <javac srcdir="${module.build.src}" destdir="${module.build.dest}" includeantruntime="false" excludes="*.txt,*.bat,*.xml,*.sh" debug="${debug}" deprecation="${deprecation}" optimize="${optimize}">
       <classpath>
         <path refid="argo.classpath"/>
       </classpath>
@@ -179,7 +179,7 @@
   </target>
   <!-- Compile JUnit tests -->
   <target name="test-compile" depends="init">
-    <javac srcdir="${test.src}" destdir="${module.build.dest}" excludes="*.txt,*.bat,*.xml,*.sh" debug="${debug}" deprecation="${deprecation}" optimize="${optimize}">
+    <javac srcdir="${test.src}" destdir="${module.build.dest}" includeantruntime="false" excludes="*.txt,*.bat,*.xml,*.sh" debug="${debug}" deprecation="${deprecation}" optimize="${optimize}">
       <classpath>
         <pathelement location="${junit.lib.file}"/>
         <pathelement path="${module.build.dest}"/>
