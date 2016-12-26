@@ -1,0 +1,131 @@
+To cite the Generic Glass Access Control Model, please use 
+ 
+  Achim D. Brucker and Helmut Petritsch. Extending access control 
+  models with break-glass. In Proceedings of the 14th ACM symposium 
+  on Access control models and technologies (SACMAT '09). ACM, New 
+  York, NY, USA, 197-206. 2009.
+  doi: 10.1145/1542207.1542239
+
+A BibTeX entry for LaTeX users is
+
+@InCollection{ brucker.ea:extending:2009,
+	abstract  = {Access control models are usually static, i.e., 
+                     permissions are granted based on a policy that only 
+                     hanges seldom. Especially for scenarios in health care 
+                     and disaster management, a more flexible support of 
+                     access control, i.e., the underlying policy, is needed.
+ 
+                     break-glass is one approach for such a flexible support of 
+                     policies which helps to prevent system stagnation that could 
+                     harm lives or otherwise result in losses. Today, break-glass 
+                     techniques are usually added on top of standard access control 
+                     solutions in an ad-hoc manner and, therefore, lack an 
+                     integration into the underlying access control paradigm and the 
+                     systems' access control enforcement architecture.
+
+                     We present an approach for integrating, in a fine-grained manner, 
+                     break-glass strategies into standard access control models and 
+                     their accompanying enforcement architecture. This integration 
+                     provides means for specifying break-glass policies precisely 
+                     and supporting model-driven development techniques based on such 
+                     policies.},
+	address	  = {New York, NY, USA},
+	author	  = {Achim D. Brucker and Helmut Petritsch},
+	booktitle = {ACM symposium on access control models and technologies (SACMAT)},
+	doi	  = {10.1145/1542207.1542239},
+	editor	  = {Barbara Carminati and James Joshi},
+	isbn	  = {978-1-60558-537-6},
+	keywords  = {disaster management, access-control, break-glass, model-driven security},
+	location  = {Stresa, Italy},
+	pages	  = {197--206},
+	pdf	  = {https://www.brucker.ch/bibliography/download/2009/brucker.ea-extending-2009.pdf},
+	publisher = {ACM Press},
+	talk	  = {talk:brucker.ea:extending:2009},
+	title	  = {Extending Access Control Models with Break-glass},
+	url	  = {https://www.brucker.ch/bibliography/abstract/brucker.ea-extending-2009},
+	year	  = {2009},
+} 
+
+
+To cite the meta-model-based approach for defining domain-specific languages, 
+please use 
+
+  Achim D. Brucker and Jürgen Doser. Metamodel-based UML Notations for Domain-specific 
+  Languages.  In 4th International Workshop on Software Language Engineering (ATEM 2007), 
+  2007.
+
+A BibTeX entry for LaTeX users is 
+
+@InCollection{ brucker.ea:metamodel:2007,
+	abstract  = {We present a metamodel-based approach for specifying UML notations for 
+                     domain-specific modeling languages. Traditionally, domain specific languages 
+                     are either defined by UML profiles or using metamodels. We provide a generic 
+                     integration of these two methods supporting arbitrary UML profiles and metamodels. 
+                     Our approach provides a bi-directional mapping between the UML notation and the 
+                     metamodel of the domain specific language. We use OCL constraints that are embedded 
+                     into the metamodel, for describing the mapping between the UML notation and the 
+                     metamodel. Moreover, we describe an implementation, as ArgoUML-plugin, for arbitrary 
+                     SecureUML dialects.},
+	address	  = {Nashville, USA},
+	author	  = {Achim D. Brucker and J{\"u}rgen Doser},
+	booktitle = {4th International Workshop on Software Language Engineering (ATEM 2007)},
+	editor	  = {Jean Marie Favre and Dragan Gasevic and Ralf L{\"a}mmel and Andreas Winter},
+	keywords  = {DSL, UML, OCL, UML Profile, Metamodel, MOF, SecureUML},
+	language  = {USenglish},
+	month	  = {oct},
+	pdf	  = 	{https://www.brucker.ch/bibliography/download/2007/brucker.ea-metamodel-2007.pdf},
+	title	  = 	{Metamodel-based UML Notations for Domain-specific Languages},
+	url	= 	{https://www.brucker.ch/bibliography/abstract/brucker.ea-metamodel-2007},
+	year	= 	{2007},
+} 
+
+
+To cite the formal analysis of SecureUML models, please use 
+
+  Achim D. Brucker, Jürgen Doser, and Burkhart Wolff. A Model Transformation Semantics and 
+  Analysis Methodology for SecureUML. In MoDELS 2006: Model Driven Engineering Languages 
+  and Systems. Lecture Notes in Computer Science (4199), pages 306-320, Springer-Verlag, 2006.
+
+A BibTeX entry for LaTeX users is
+
+@InCollection{	  brucker.ea:transformation:2006,
+  abstract	= {SecureUML is a security modeling language for formalizing
+		  access control requirements in a declarative way. It is
+		  equipped with a \UML notation in terms of a \UML profile,
+		  and can be combined with arbitrary design modeling
+		  languages. We present a semantics for SecureUML in terms of
+		  a model transformation to standard UML/OCL. The
+		  transformation scheme is used as part of an implementation
+		  of a tool chain ranging from front-end visual modeling
+		  tools over code-generators to the interactive theorem
+		  proving environment \holocl. The methodological
+		  consequences for an analysis of the generated \OCL formulae
+		  are discussed.},
+  address	= {Heidelberg},
+  author	= {Achim D. Brucker and J\"urgen Doser and Burkhart Wolff},
+  booktitle	= {{MoDELS} 2006: Model Driven Engineering Languages and
+		  Systems},
+  doi		= {10.1007/11880240_22},
+  editor	= {Oscar Nierstrasz and Jon Whittle and David Harel and
+		  Gianna Reggio},
+  file		= {https://www.brucker.ch/bibliography/download/2006/brucker.ea-transformation-2006-b.pdf},
+  filelabel	= {Extended Version},
+  keywords	= {security, SecureUML, UML, OCL, HOL-OCL,
+		  model-transformation},
+  language	= {USenglish},
+  location	= {Genova},
+  note		= {An extended version of this paper is available as ETH
+		  Technical Report, no. 524.},
+  number	= {4199},
+  pages		= {306--320},
+  pdf		= {https://www.brucker.ch/bibliography/download/2006/brucker.ea-transformation-2006.pdf},
+  project	= {CSFMDOS},
+  publisher	= {Springer-Verlag},
+  series	= {Lecture Notes in Computer Science},
+  talk		= {talk:brucker.ea:transformation:2006},
+  title		= {A Model Transformation Semantics and Analysis Methodology
+		  for {SecureUML}},
+  url		= {https://www.brucker.ch/bibliography/abstract/brucker.ea-transformation-2006},
+  year		= {2006}
+}
+
