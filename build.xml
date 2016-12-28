@@ -69,7 +69,6 @@
 		install		--&gt; Install module '${argo.module.name}'.
 		clean		--&gt; Removes compiled files.
 		javadoc		--&gt; Generates the JavaDoc in '${javadoc.dir}'.
-		checkstyle	--&gt; Check code style with CheckStyle
 		pmd		--&gt; Check the code sanity with PMD and write the report to '${pmd.report.file}'.
 		junit		--&gt; Run the JUnit test suites.
 		run		--&gt; Run argouml with the newest version of the secure uml module.
@@ -145,21 +144,6 @@
         <path refid="argo.classpath"/>
       </classpath>
     </javadoc>
-  </target>
-  <!-- Check code style with CheckStyle -->
-  <target name="checkstyle" description="Check code style with CheckStyle" depends="init">
-    <path id="checkstyle.path">
-      <pathelement location="${checkstyle.lib.path}/checkstyle-all-4.4.jar"/>
-    </path>
-    <taskdef resource="checkstyletask.properties" classpathref="checkstyle.path"/>
-    <checkstyle config="checkstyle.xml" failOnViolation="false" failureProperty="test.failed">
-      <classpath refid="argo.classpath"/>
-      <fileset dir="${module.build.src}" includes="**/usecasemapper/**/*.java"/>
-      <fileset dir="${test.src}" includes="**/usecasemapper/**/*.java"/>
-      <formatter type="plain"/>
-      <formatter type="xml" toFile="${test.data.dir}/checkstyle_report.xml"/>
-    </checkstyle>
-    <xslt in="${test.data.dir}/checkstyle_report.xml" out="${test.reports.dir}/checkstyle_report.html" style="${checkstyle.lib.path}/contrib/checkstyle-frames.xsl"/>
   </target>
   <!-- Check code sanity with PMD -->
   <target name="pmd" description="Check code sanity with PMD and write to '${pmd.report.file}'" depends="init">
