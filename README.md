@@ -1,8 +1,10 @@
 # SecureUML-GUI
+
 A ArgoUML extensions for modelling SecureUML supporting various SecureUML
 dialects with and without support for Generic Break Glass concepts. 
 
 ## Installation
+
 1. Download ArgoUML 0.26.2 from [http://argouml-downloads.tigris.org/argouml-0.26.2/](http://argouml-downloads.tigris.org/argouml-0.26.2/)
 2. Unzip the ArgoUML 0.26.2 archive 
 3. Rename `local.properties.in` to `local.properties` and edit the file so that 
@@ -11,18 +13,22 @@ dialects with and without support for Generic Break Glass concepts.
 4. Build and install the SecureUML plugin: `ant install`
  
 ## License
+
 This project is licensed under a 2-clause BSD license. 
 
 ## Team 
+
 * [Achim D. Brucker](http://www.brucker.ch/)
 * Jürgen Doser
 * [Helmut Petritsch](http://petritsch.co.at/)
 
 ### Contributors
+
 * Marcel Beer
 * Andreas Schmidt
 
 ## Publications
+
 * Achim D. Brucker and Helmut Petritsch. [Extending access control 
   models with break-glass.](https://www.brucker.ch/bibliography/download/2009/brucker.ea-extending-2009.pdf) 
   In Proceedings of the 14th ACM symposium on Access control models 
