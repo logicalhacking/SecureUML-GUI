@@ -12,10 +12,6 @@ dialects with and without support for Generic Break Glass concepts.
    ArgoUML 0.26.2 archive
 4. Build and install the SecureUML plugin: `ant install`
  
-## License
-
-This project is licensed under a 2-clause BSD license. 
-
 ## Team 
 
 * [Achim D. Brucker](http://www.brucker.ch/)
@@ -32,6 +28,12 @@ This project is licensed under a 2-clause BSD license.
 This project is licensed under a 2-clause BSD license.
 
 SPDX-License-Identifier: BSD-2-Clause
+
+## Master Repository
+
+The master git repository for this project is hosted by the [Software
+Assurance & Security Research Team](https://logicalhacking.com) at
+<https://git.logicalhacking.com/GenericBreakGlass/SecureUML-GUI>.
 
 ## Publications
 
