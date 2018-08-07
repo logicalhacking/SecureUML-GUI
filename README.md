@@ -27,6 +27,12 @@ This project is licensed under a 2-clause BSD license.
 * Marcel Beer
 * Andreas Schmidt
 
+## License
+
+This project is licensed under a 2-clause BSD license.
+
+SPDX-License-Identifier: BSD-2-Clause
+
 ## Publications
 
 * Achim D. Brucker and Helmut Petritsch. [Extending access control 
